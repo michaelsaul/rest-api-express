@@ -3,12 +3,21 @@ var express = require('express'),
   bodyParser = require('body-parser')
   logger = require('morgan')
 
+var port = process.env.port || 3000;
+
 var app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(logger('dev'))
 
-var db = mongoskin.db('mongodb://@localhost:27017/test', {safe:true})
+if (process.env.NODE_ENV == 'development') {
+  console.log('Connecting to mongodb on localhost');
+  var db = mongoskin.db('mongodb://@localhost:27017/test', {safe:true});
+} else {
+  console.log('Connecting to mongodb on Azure');
+  var db = mongoskin.db('mongodb://misaulrestapidb:KrDK54ZNQREdSusVaeX5fmpgSentmYnfmd7twFXCEXMnXnhLEN9icUvnx2Jh3bQjCV0itJoWtz4RPBGE2GVuxw==@misaulrestapidb.documents.azure.com:10250/?ssl=true')
+}
+
 
 app.param('collectionName', function(req, res, next, collectionName){
   req.collection = db.collection(collectionName)
@@ -54,7 +63,7 @@ app.delete('/collections/:collectionName/:id', function(req, res, next) {
   })
 })
 
-app.listen(3000, function(){
-  console.log('Express server listening on port 3000')
+app.listen(port, function(){
+  console.log('Express server listening on port ' + port)
 })
 
