@@ -15,7 +15,7 @@ if (process.env.NODE_ENV == 'development') {
   var db = mongoskin.db('mongodb://@localhost:27017/test', {safe:true});
 } else {
   console.log('Connecting to mongodb on Azure');
-  var db = mongoskin.db('mongodb://misaulrestapidb:KrDK54ZNQREdSusVaeX5fmpgSentmYnfmd7twFXCEXMnXnhLEN9icUvnx2Jh3bQjCV0itJoWtz4RPBGE2GVuxw==@misaulrestapidb.documents.azure.com:10250/?ssl=true')
+  var db = mongoskin.db('mongodb://misaulrestapidb:KrDK54ZNQREdSusVaeX5fmpgSentmYnfmd7twFXCEXMnXnhLEN9icUvnx2Jh3bQjCV0itJoWtz4RPBGE2GVuxw==@misaulrestapidb.documents.azure.com:10250/db?ssl=true')
 }
 
 
