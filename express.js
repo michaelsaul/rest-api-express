@@ -1,9 +1,11 @@
 var express = require('express'),
   mongoskin = require('mongoskin'),
   bodyParser = require('body-parser')
-  logger = require('morgan')
+  logger = require('morgan');
 
 var port = process.env.port || 3000;
+var url
+
 
 var app = express()
 app.use(bodyParser.json())
@@ -15,7 +17,8 @@ if (process.env.NODE_ENV == 'development') {
   var db = mongoskin.db('mongodb://@localhost:27017/test', {safe:true});
 } else {
   console.log('Connecting to mongodb on Azure');
-  var db = mongoskin.db('mongodb://misaulrestapidb:KrDK54ZNQREdSusVaeX5fmpgSentmYnfmd7twFXCEXMnXnhLEN9icUvnx2Jh3bQjCV0itJoWtz4RPBGE2GVuxw==@misaulrestapidb.documents.azure.com:10250/db?ssl=true')
+  url = process.env.MONGO_DB_URL
+  var db = mongoskin.db(url)
 }
 
 
