@@ -1,10 +1,47 @@
-> Node.js REST API Example with MongoDB, Mongoskin, Express 3 and 4
+> Node.js REST API Example with MongoDB, Mongoskin, Express 4 for Azure
 
-# Express.js 4.x
+This project updates the upstream to add support for running an API Example with Azure App Service API App, DocumentDB (using Mongo DB Protocol Support).
+
+Brief instructions:
+
+1. Create DocumentDB with Mongo Protocol Support.
+2. Create Azure API App.
+3. Set Environment Variable for MONGO_DB_URL using URL from DocumentDB.
+4. Download and test code.
+```
+$ git clone https://github.com/michaelsaul/rest-api-express.git
+$ cd rest-api-express
+$ npm install
+$ node express.js
+```
+
+5. Push changes to Azure App Service.
+6. Edit environment.sh.template and save as environment.sh
+7. Test configuration using environment.sh script.
+```
+$ sh environment.sh
+
+
+  express rest api server
+    ✓ posts an object (101ms)
+    ✓ retrieves an object (67ms)
+    ✓ retrieves a collection (57ms)
+    ✓ updates an object (67ms)
+    ✓ checks an updated object (49ms)
+    ✓ removes an object (66ms)
+    ✓ checks an removed object (56ms)
+
+
+  7 passing (472ms)
+```
+
+# Original Project Information 
+
+## Express.js 4.x
 
 `master` branch
 
-Full tutorial: <http://webapplog.com/express-js-4-node-js-and-mongodb-rest-api-tutorial/>
+Original tutorial: <http://webapplog.com/express-js-4-node-js-and-mongodb-rest-api-tutorial/>
 
 Brief instructions:
 
@@ -32,34 +69,4 @@ You can use `package.json` commands:
 ```
 $ npm start
 $ npm test
-```
-
----
-
-# Express.js 3.x
-
-`express3` branch
-
-Full tutorial: <http://webapplog.com/tutorial-node-js-and-mongodb-json-rest-api-server-with-mongoskin-and-express-js/>
-
-Brief instructions:
-
-```
-$ git clone https://github.com/azat-co/rest-api-express.git
-$ cd rest-api-express
-$ git checkout express3
-$ npm install
-$ node express.js
-```
-
-in a new window
-
-```
-$ mocha express.test.js
-```
-
-or (if you don't have mocha installed globally):
-
-```
-$ ./node_modules/mocha/bin/mocha express.test.js
 ```
