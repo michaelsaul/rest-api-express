@@ -1,20 +1,21 @@
 {
   "name": "rest-api-express",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "express.js",
   "scripts": {
     "start": "node express.js",
-    "test": "./node_modules/mocha/bin/mocha express.test.js"
+    "test": "./node_modules/mocha/bin/mocha express.test.js",
+    "test-azure": "./node_modules/mocha/bin/mocha express.test-azure.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/azat-co/rest-api-express.git"
+    "url": "https://github.com/michaelsaul/rest-api-express"
   },
-  "author": "Azat Mardan",
+  "author": "Michael Saul",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/azat-co/rest-api-express/issues"
+    "url": "https://github.com/michaelsaul/rest-api-express/issues"
   },
   "dependencies": {
     "body-parser": "1.9.2",

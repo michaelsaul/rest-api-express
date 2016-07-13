@@ -1,3 +1,2 @@
 #!/bin/sh
 export AZURE_API_URL=http://myappurl.azurewebsites.net
-mocha express.test-azure.js
