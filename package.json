@@ -1,7 +1,7 @@
 {
   "name": "rest-api-express",
   "version": "0.0.5",
-  "description": "",
+  "description": "Node.js REST API Example with MongoDB, Mongoskin, Express 4 for Azure",
   "main": "express.js",
   "scripts": {
     "start": "node express.js",

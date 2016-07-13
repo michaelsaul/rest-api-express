@@ -1,6 +1,6 @@
 # Node.js REST API Example with MongoDB, Mongoskin, Express 4 for Azure
 
-This project updates the upstream to add support for running an API Example with Azure App Service API App, DocumentDB (using Mongo DB Protocol Support).
+This project updates the upstream to add support for running an API Example with Azure App Service and DocumentDB with Protocol Support for MongoDB.
 
 ## Environment Setup Instructions:
 
@@ -9,15 +9,24 @@ This project updates the upstream to add support for running an API Example with
 3. In the Azure API App and on your local box, set an Environment Variable for MONGO_DB_URL using URL from DocumentDB.
 4. Download and test code.
 
-> Note that the express.js applicaiton will look for the NODE_ENV environment
-> variable. If it is "development" it will default to mongodb on localhost. Anything
-> else will default to the URL stored in the MONGO_DB_URL environment variable.
+> Note: express.js will look for the NODE_ENV environment variable. A value of "development" will default to mongodb on localhost. Anything else will use the URL stored in the MONGO_DB_URL environment variable.
 
 ```
 $ git clone https://github.com/michaelsaul/rest-api-express.git
 $ cd rest-api-express
 $ npm install
 $ node express.js
+```
+
+## Deployment Instructions
+
+1. Deplpoy the project to the Azure API App using git.
+
+> Note: more information about deploying to a local git repo can be found here: <https://azure.microsoft.com/en-us/documentation/articles/app-service-deploy-local-git/>
+
+```
+$ git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
+$ git push azure master
 ```
 
 ## Testing Instructions
@@ -27,7 +36,7 @@ $ node express.js
 3. Use mocha to run test suite.
 ```
 $ source environment.sh
-$mocha express.test-azure.js 
+$ mocha express.test-azure.js 
 
   express rest api server
     ✓ posts an object (101ms)
