@@ -21,7 +21,6 @@ if (process.env.NODE_ENV == 'development') {
   var db = mongoskin.db(url)
 }
 
-
 app.param('collectionName', function(req, res, next, collectionName){
   req.collection = db.collection(collectionName)
   return next()
@@ -32,7 +31,7 @@ app.get('/', function(req, res, next) {
 })
 
 app.get('/collections/:collectionName', function(req, res, next) {
-  req.collection.find({} ,{limit: 10}).toArray(function(e, results){
+  req.collection.find({} ,{limit: 10, sort: {'name': -1}}).toArray(function(e, results){
     if (e) return next(e)
     res.send(results)
   })
@@ -69,4 +68,3 @@ app.delete('/collections/:collectionName/:id', function(req, res, next) {
 app.listen(port, function(){
   console.log('Express server listening on port ' + port)
 })
-
