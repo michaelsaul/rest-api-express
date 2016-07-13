@@ -8,7 +8,11 @@ This project updates the upstream to add support for running an API Example with
 2. Create Azure API App.
 3. In the Azure API App and on your local box, set an Environment Variable for MONGO_DB_URL using URL from DocumentDB.
 4. Download and test code.
-> Note that the express.js applicaiton will look for the NODE_ENV environment variable. If it is "development" it will default to mongodb on localhost. Anything else will default to the URL stored in the MONGO_DB_URL environment variable.
+
+> Note that the express.js applicaiton will look for the NODE_ENV environment
+> variable. If it is "development" it will default to mongodb on localhost. Anything
+> else will default to the URL stored in the MONGO_DB_URL environment variable.
+
 ```
 $ git clone https://github.com/michaelsaul/rest-api-express.git
 $ cd rest-api-express
