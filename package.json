@@ -10,7 +10,7 @@
   },
   "engines": {
     "node" : "6.3.0"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/michaelsaul/rest-api-express"
